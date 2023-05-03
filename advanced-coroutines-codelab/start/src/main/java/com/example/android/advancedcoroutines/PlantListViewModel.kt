@@ -73,7 +73,6 @@ class PlantListViewModel internal constructor(
         }
     }
 
-    val plantsUsingFlow: LiveData<List<Plant>> = plantRepository.plantsFlow.asLiveData()
     private val growZoneFlow = MutableStateFlow<GrowZone>(NoGrowZone)
 
     val plantsUsingFlow: LiveData<List<Plant>> = growZoneFlow.flatMapLatest { growZone ->
